@@ -11,8 +11,6 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
-
-  <%= yield %>
 <!-- Cards -->
 
     <div class="cards">
@@ -62,5 +60,8 @@
       </div>
 
     </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
   </body>
 </html>

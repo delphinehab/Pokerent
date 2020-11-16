@@ -1,10 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+Pokemon.create(name: 'Salameche', description: 'Charmander (Japanese: ヒトカゲ Hitokage) is a Fire-type Pokémon introduced in Generation I. It evolves into Charmeleon starting at level 16, which evolves into Charizard starting at level 36.', element: 'fire', evolution_level: '1',image: )
+Pokemon.create(name: 'Pikatchu', description: 'Pikachu (Japanese: ピカチュウ Pikachu) is an Electric-type Pokémon introduced in Generation I. It evolves from Pichu when leveled up with high friendship and evolves into Raichu when exposed to a Thunder Stone.', element: 'electricity', evolution_level: '1',image:)
+Pokemon.create(name: 'Bulbizarre', description: 'Bulbasaur (Japanese: フシギダネ Fushigidane) is a dual-type Grass/Poison Pokémon introduced in Generation I. It evolves into Ivysaur starting at level 16, which evolves into Venusaur starting at level 32.', element: 'grass', evolution_level: '1',image:)
+Pokemon.create(name: 'Dracaufeu', description: 'Charizard (Japanese: リザードン Lizardon) is a dual-type Fire/Flying Pokémon introduced in Generation I. It evolves from Charmeleon starting at level 36. It is the final form of Charmander.', element: 'fire', evolution_level: '2', image:)
 
 User.create! :name => 'Antoine Goeuriot', :email => 'antoine.goeuriot@gmail.com', :password => '123456', :password_confirmation => '123456'
 User.create! :name => 'Tanguy Truhe', :email => 'tanguy.truhe@gmail.com', :password => '123456', :password_confirmation => '123456'
@@ -19,4 +17,4 @@ Review.create! :content => 'Good pokemon, will rent again', :pokemon_id => 4, :u
 Booking.create! :user_id => 1, :pokemon_id 1
 Booking.create! :user_id => 2, :pokemon_id 2 
 
-# only creating 2 bookings so that 2 pokemons are booked and 2 are not 
+# only creating 2 bookings so that 2 pokemons are booked and 2 are not

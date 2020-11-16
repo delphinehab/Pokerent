@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'devise'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -42,7 +43,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'devise'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'

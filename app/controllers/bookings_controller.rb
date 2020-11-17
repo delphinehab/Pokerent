@@ -5,14 +5,13 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @bookings =
   end
 
   def create
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[pokemon_id])
   end
 
 end

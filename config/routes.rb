@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings
+  resources :users
 
   resources :users, only: [:show]
 

@@ -21,7 +21,9 @@
           <p>
             <%= pokemon.description %>
           </p>
+          <% if policy(pokemon).show? %>
           <%= link_to 'See more', pokemon_path(pokemon), :class => 'btn btn-primary' %>
+          <% end %>
         </div>
       </div>
 

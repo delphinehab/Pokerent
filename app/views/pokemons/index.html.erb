@@ -1,0 +1,21 @@
+<div class="cards">
+
+<% @pokemons.each do |pokemon| %>
+
+      <div class="card" style="width: 15rem">
+        <%= image_tag 'pika.png', class: "card-img-top" %>
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= pokemon.name %> 
+            <%= image_tag "#{pokemon.element}.png", class: "element" %>
+          </h4>
+          <p>
+            <%= pokemon.description %>
+          </p>
+          <%= link_to 'See more', pokemon_path(pokemon), :class => 'btn btn-primary' %>
+        </div>
+      </div>
+
+<% end %>
+
+</div>

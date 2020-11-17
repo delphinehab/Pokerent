@@ -8,12 +8,14 @@
   padding-bottom: 32px;
   margin: 15px;
   height: 400px;
+  text-align: justify;
 }
 
 .card h4 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  text-align: center;
 }
 
 .card p {
@@ -25,13 +27,12 @@
 }
 
 .cards {
-  display: flex; 
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   flex-grow: 1;
 }
 
 .card img {
-  height: 120px;
   width: 120px;
 }
 
@@ -39,7 +40,8 @@
   background-color: gold;
   border: 0px;
   position: relative;
-  bottom: 20px; 
+  bottom: 15px;
+  left: 30px;
 }
 
 .card .element {

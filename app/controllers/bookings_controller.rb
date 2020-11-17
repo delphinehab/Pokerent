@@ -5,10 +5,12 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @bookings =
+    @booking = Booking.new
   end
 
   def create
+    @pokemon = Pokemon.find(param)
+
   end
 
 end

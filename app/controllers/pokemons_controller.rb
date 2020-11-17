@@ -10,6 +10,7 @@ class PokemonsController < ApplicationController
 
   def create
     @pokemon = Pokemon.new(pokemon_params)
+    @pokemon.user = current_user
     if @pokemon.save
       redirect_to pokemon_path(@pokemon)
     else
@@ -31,15 +32,15 @@ class PokemonsController < ApplicationController
     @reviews = Review.all
   end
 
-  def destroy 
+  def destroy
     @pokemon = Pokemon.find(params[:id])
     @pokemon.destroy
     redirect_to pokemons_path
   end
-  
+
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:name,:description,:element,:evolution_level)
+    params.require(:pokemon).permit(:name, :description, :element, :evolution_level)
   end
 end

@@ -1,6 +1,8 @@
 <h1>Your booking</h1>
 
 <ul>
-  <li>Your Pokemon <%=@booking.pokemon%></li>
-  <li>The user : <%= @booking.user %>  </li>
+  <li>Your Pokemon <%=@booking.pokemon.name%></li>
+  <li>The user : <%= @booking.user.email %>  </li>
 </ul>
+
+<%= link_to "Begin a conversation", message_path  %>

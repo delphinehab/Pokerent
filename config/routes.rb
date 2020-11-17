@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'pokemons#index'
 
   resources :pokemons do
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings
+  resources :bookings, only: [:show, :edit, :update, :destroy]
   resources :users
 
   resources :users, only: [:show]

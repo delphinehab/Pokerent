@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pokemons#index'
 
+  resources :pokemons
+  
   resources :pokemons do
-      resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create]
   end
+  
+  resources :bookings
 
   resources :users do
     resources :bookings, only: [:index]

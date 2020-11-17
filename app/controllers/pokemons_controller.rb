@@ -2,7 +2,7 @@ class PokemonsController < ApplicationController
 
   def index
     if params[:query].present?
-      @pokemons = policty_scope(Pokemon.where("name ILIKE ?", "%#{params[:query]}%"))
+      @pokemons = policy_scope(Pokemon.where("name ILIKE ?", "%#{params[:query]}%"))
     else
       @pokemons = policy_scope(Pokemon)
     end

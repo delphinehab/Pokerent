@@ -18,6 +18,10 @@
 
 <%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-primary' %>
 
+<% if @pokemon.user == current_user %>
+<%= link_to "Delete", pokemon_path(@pokemon), method: :delete, :class => 'btn btn-primary' %>
+<% end %>
+
 <h4>Reviews</h4>
 <% @reviews.each do |review| %>
 <% if review.booking.pokemon == @pokemon %>

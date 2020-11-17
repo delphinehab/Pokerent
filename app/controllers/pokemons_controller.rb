@@ -21,6 +21,12 @@ class PokemonsController < ApplicationController
     redirect_to pokemon_path(@pokemon)
   end 
 
+  def destroy 
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
+    redirect_to pokemons_path
+  end
+  
   private
 
   def pokemon_params

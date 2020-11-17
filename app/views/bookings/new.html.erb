@@ -1,0 +1,28 @@
+<H3>Book Your Pokemon</H3>
+
+<div class="calendar_container">
+  <div id="calendar">
+  </div>
+</div>
+
+
+<%= month_calendar pokemon: @bookings do |date, bookings| %>
+<div class="cursor" style="cursor: pointer;">
+  <%= date.day %>
+  <span style="display: none"><%= date %></span>
+</div>
+
+  <% bookings.each do |booking| %>
+    <div>
+      <%= booking.start_time %>
+    </div>
+  <% end %>
+
+<% end %>
+
+
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :pokemon_id, :as => :hidden, :input_html => { :value => params[:pokemon_id] } %>
+  <%= f.input :date, label: "Date of Booking", as: :string, start_year: Time.now.year - 90, end_year: Time.now.year - 8, order: [:day, :month, :year]%>
+  <%= f.button :submit %>
+<% end %>

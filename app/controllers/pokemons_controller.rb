@@ -30,6 +30,12 @@ class PokemonsController < ApplicationController
     @reviews = Review.all
   end
 
+  def destroy 
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
+    redirect_to pokemons_path
+  end
+  
   private
 
   def pokemon_params

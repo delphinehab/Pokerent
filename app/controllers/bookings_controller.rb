@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   require 'active_support/all'
+  skip_after_action :verify_authorized
 
   def index
     @bookings = Booking.all

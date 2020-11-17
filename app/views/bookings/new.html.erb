@@ -22,6 +22,7 @@
 
 
 <%= simple_form_for @booking do |f| %>
+  <%= f.input :pokemon_id, :as => :hidden, :input_html => { :value => params[:pokemon_id] } %>
   <%= f.input :date, label: "Date of Booking", as: :string, start_year: Time.now.year - 90, end_year: Time.now.year - 8, order: [:day, :month, :year]%>
   <%= f.button :submit %>
 <% end %>

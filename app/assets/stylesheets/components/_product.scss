@@ -1,0 +1,60 @@
+.pokemon-image {
+  align-items: center;
+  height: 300px;
+}
+.product-img {
+  height: 250px;
+  display: block; 
+  margin: auto;
+  padding-top: 50px;
+}
+
+.pkm-description {
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-right: 40px;
+}
+
+.pkm-description h4 {
+  font-weight: bolder;
+}
+
+.pkm-description .element {
+  height: 30px; 
+  width: 30px;
+}
+
+.pkm-description h4 {
+  margin-top: 20px;
+}
+
+.pkm-description h5 {
+  margin-top: 20px;
+}
+
+.poke {
+  border: 3px solid gold;
+  margin-top: 30px;
+}
+
+.btn {
+  position: relative;
+  margin-top: 30px;
+  right: 0px;
+  background-color: gold;
+  border: 0px;
+  margin-bottom: 30px; 
+}
+
+.review {
+  border: 1px solid gold; 
+}
+
+.review p {
+  margin-top: 10px;
+  margin-left: 10px
+}
+
+h4 {
+  font-weight: 900;
+}

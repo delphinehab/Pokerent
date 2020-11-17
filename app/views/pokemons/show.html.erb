@@ -1,0 +1,33 @@
+<div class="poke">
+
+<div class="row">
+
+<div class="pokemon-image col-4">
+  <%= image_tag 'pika.png', class: "product-img" %>
+</div>
+<div class="pkm-description col-8">
+  <h4><%= @pokemon.name %> <%= image_tag "#{@pokemon.element}.png", class: "element" %></h4>
+    <%= @pokemon.description %>
+  <h5>Evolution level:  <%= @pokemon.evolution_level %></h5>  
+  <h5>Trainer: <%= @pokemon.user.email %></h5>
+</div>
+
+</div>
+
+</div>
+
+<%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-primary' %>
+
+<h4>Reviews</h4>
+<% @reviews.each do |review| %>
+<% if review.booking.pokemon == @pokemon %>
+<div class="review">
+<p><%= review.content %>
+<br>
+<%= review.booking.user.email %>
+</p>
+</div>
+<% end %>
+<% end %>
+
+

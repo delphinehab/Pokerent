@@ -1,7 +1,11 @@
 class PokemonsController < ApplicationController
 
   def index
-    @pokemons = policy_scope(Pokemon)
+    if params[:query].present?
+      @pokemons = policty_scope(Pokemon.where("name ILIKE ?", "%#{params[:query]}%"))
+    else
+      @pokemons = policy_scope(Pokemon)
+    end
   end
 
   def new
@@ -29,6 +33,7 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.find(params[:id])
     authorize @pokemon
     @pokemon.update(pokemon_params)
+    redirect_to pokemon_path(@pokemon)
   end
 
   def show

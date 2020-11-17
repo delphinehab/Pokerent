@@ -1,11 +1,11 @@
 <div class="poke">
 
 <div class="row">
-  <%= cl_image_tag("kvo5739c2ns9w7pg9x3k",
-      width: 400, height: 300, crop: :fill) %>
 
   <div class="pokemon-image col-4">
-    <%= image_tag 'pika.png', class: "product-img" %>
+    <%if @pokemon.photo != nil %>
+      <%= cl_image_tag @pokemon.photo.key, crop: :fill , class: "product-img" %>
+    <% end %>
   </div>
   <div class="pkm-description col-8">
     <h4><%= @pokemon.name %> <%= image_tag "#{@pokemon.element}.png", class: "element" %></h4>

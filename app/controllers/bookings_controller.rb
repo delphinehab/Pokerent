@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    raise
     @pokemon = Pokemon.find(param)
   end
 

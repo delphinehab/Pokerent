@@ -7,7 +7,10 @@
 
 
 <%= month_calendar pokemon: @bookings do |date, bookings| %>
+<div class="cursor" style="cursor: pointer;">
   <%= date.day %>
+  <span style="display: none"><%= date %></span>
+</div>
 
   <% bookings.each do |booking| %>
     <div>
@@ -18,9 +21,7 @@
 <% end %>
 
 
-<h2>which day are you interested by ?</h2>
-<h3>Add a review</h3>
 <%= simple_form_for @booking do |f| %>
-  <%= f.input %>
-  <%= f.submit class: "btn btn-primary"%>
+  <%= f.input :date, label: "Date of Booking", as: :string, start_year: Time.now.year - 90, end_year: Time.now.year - 8, order: [:day, :month, :year]%>
+  <%= f.button :submit %>
 <% end %>

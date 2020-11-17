@@ -1,0 +1,17 @@
+<h4>My bookings</h4>
+<ul>
+<% @bookings.each do |booking| %>
+<li><%= booking.pokemon.name %> 
+rented from
+<%= booking.pokemon.user.email %>
+</li>
+<% end %>
+</ul>
+
+<h4>My pokemons</h4>
+<ul>
+<% @pokemons.each do |pokemon| %>
+<li><%= pokemon.name %>
+</li>
+<% end %>
+</ul>

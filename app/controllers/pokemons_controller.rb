@@ -1,5 +1,4 @@
 class PokemonsController < ApplicationController
-
   def index
     @pokemons = Pokemon.all
   end
@@ -25,6 +24,7 @@ class PokemonsController < ApplicationController
   def update
     @pokemon = Pokemon.find(params[:id])
     @pokemon.update(pokemon_params)
+    redirect_to pokemon_path(@pokemon)
   end
 
   def show

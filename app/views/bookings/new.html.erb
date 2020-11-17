@@ -1,1 +1,26 @@
 <H3>Book Your Pokemon</H3>
+
+<div class="calendar_container">
+  <div id="calendar">
+  </div>
+</div>
+
+
+<%= month_calendar pokemon: @bookings do |date, bookings| %>
+  <%= date.day %>
+
+  <% bookings.each do |booking| %>
+    <div>
+      <%= booking.start_time %>
+    </div>
+  <% end %>
+
+<% end %>
+
+
+<h2>which day are you interested by ?</h2>
+<h3>Add a review</h3>
+<%= simple_form_for @booking do |f| %>
+  <%= f.input %>
+  <%= f.submit class: "btn btn-primary"%>
+<% end %>

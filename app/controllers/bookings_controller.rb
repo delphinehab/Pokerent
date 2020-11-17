@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
 
   def create
     @pokemon = Pokemon.find(param)
-
   end
 
 end

@@ -4,7 +4,6 @@ class PokemonsController < ApplicationController
     @pokemons = Pokemon.all
   end
 
-
   def new
     @pokemon = Pokemon.new
   end

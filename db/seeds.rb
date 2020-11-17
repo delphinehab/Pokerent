@@ -23,9 +23,14 @@ puts "create booking"
 booking1 = Booking.create! user: delphine, pokemon: salameche
 booking2 = Booking.create! user: rodolphe, pokemon: pikatchu
 
+puts "create conversation"
+conversation1 = Conversation.create(booking: booking1)
+conversation2 = Conversation.create(booking: booking2)
+
 puts "create review"
 Review.create! :content => 'Good pokemon, will rent again', booking: booking1
 Review.create! :content => 'Good pokemon, will rent again', booking: booking2
+
 
 
 # only creating 2 bookings so that 2 pokemons are booked and 2 are not

@@ -10,7 +10,7 @@
       <%= @pokemon.description %>
     <h5>Evolution level:  <%= @pokemon.evolution_level %></h5>
     <h5>Trainer: <%= @pokemon.user.email %></h5>
-    <% if current_user = @pokemon.user %>
+    <% if policy(@pokemon).update? %>
       <%= link_to 'Update infos', edit_pokemon_path(@pokemon), :class => 'btn' %>
     <% end %>
   </div>
@@ -19,7 +19,7 @@
 </div>
 <%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-primary' %>
 
-<% if @pokemon.user == current_user %>
+<% if policy(@pokemon).destroy? %>
 <%= link_to "Delete", pokemon_path(@pokemon), method: :delete, :class => 'btn btn-primary' %>
 <% end %>
 

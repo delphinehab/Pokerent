@@ -1,3 +1,12 @@
+<%= form_tag pokemons_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a pokemon"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="cards">
 
 <% @pokemons.each do |pokemon| %>
@@ -6,13 +15,15 @@
         <%= image_tag 'pika.png', class: "card-img-top" %>
         <div class="card-body">
           <h4 class="card-title">
-            <%= pokemon.name %> 
+            <%= pokemon.name %>
             <%= image_tag "#{pokemon.element}.png", class: "element" %>
           </h4>
           <p>
             <%= pokemon.description %>
           </p>
+          <% if policy(pokemon).show? %>
           <%= link_to 'See more', pokemon_path(pokemon), :class => 'btn btn-primary' %>
+          <% end %>
         </div>
       </div>
 

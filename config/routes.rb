@@ -12,6 +12,17 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:destroy]
 
+
+  resources :bookings do 
+    resources :pokemons
+    resources :conversations do 
+      resources :messages
+    end 
+  end 
+
+  resources :messages
+
+
   resources :users
 
   resources :users, only: [:show]

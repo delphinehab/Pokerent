@@ -6,6 +6,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     @booking = Booking.new
   end
@@ -24,13 +28,9 @@ class BookingsController < ApplicationController
     end
   end
 
-
   private
+
   def booking_params
     params.require(:booking).permit(:date)
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
   end
 end

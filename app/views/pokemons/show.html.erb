@@ -24,15 +24,16 @@
 <% end %>
 
 <h4>Reviews</h4>
-<% @reviews.each do |review| %>
-<% if review.booking.pokemon == @pokemon %>
-<div class="review">
-<p><%= review.content %>
-<br>
-<%= review.booking.user.email %>
-</p>
-</div>
-<% end %>
-<% end %>
+  <% @reviews.each do |review| %>
+    <% if review.booking.pokemon == @pokemon %>
+      <div class="review">
+        <p><%= review.content %>
+        <br>
+        <%= review.booking.user.email %>
+        <%= link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Are you sure?"}%>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
 
 

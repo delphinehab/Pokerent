@@ -5,4 +5,6 @@
   <li>The user : <%= @booking.user.email %>  </li>
 </ul>
 
-<h2>Conversation: </h2>
+<p><%= link_to 'Add a review', new_booking_review_path(@booking) %></p>
+
+

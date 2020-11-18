@@ -1,15 +1,26 @@
 class ReviewsController < ApplicationController
+  skip_after_action :verify_authorized
+
   def new
-    @pokemon = Pokemon.find(params[:pokemon_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
   def create
-    @pokemon = Pokemon.find(params[:pokemon_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
-    @review.pokemon = @pokemon
-    @review.save
-    redirect_to pokemon_path(@pokemon)
+    @review.booking = @booking
+    if @review.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to booking_path(@review.booking)
   end
 
   private

@@ -11,17 +11,17 @@
 <br>
 
 <% @messages.each do |message| %>
-<li><%= message.content %></li>
-by 
-<%= User.find(message.user_id).email %>
-<br>
-<br>
+<div class="message">
+<p><strong><%= message.content %></strong></p>
+
+<div class="author"><%= User.find(message.user_id).email %></div>
+</div>
 <% end %>
 
-<br>
-<br>
+<div class="messageform">
 <%= simple_form_for @message do |f| %>
-  <%= f.input :content %>
+  <%= f.input :content, input_html: { class: 'question' }, label: 'Send a message to the owner'%>
   <%= f.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
   <%= f.button :submit %>
 <% end %>
+</div>

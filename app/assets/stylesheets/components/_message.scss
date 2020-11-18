@@ -1,0 +1,49 @@
+.message {
+  width: 80%;
+  border: 1px solid gold;
+  position: relative;
+  height: 80px; 
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.message p {
+  font-size: 16px;
+  font-weight: lighter;
+  position: absolute;
+  top: 5px; 
+  left: 5px; 
+}
+
+.message .author {
+  position: absolute;
+  bottom: 5px; 
+  right: 5px; 
+  font-size: smaller;
+}
+
+.question {
+  width: 80%;
+}
+
+.optional {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+.messageform {
+  position: relative; 
+}
+.messageform .btn {
+  margin-top: 10px; 
+  position: relative;
+  height: 30px;
+  font-size: 14px;
+  color: white;
+}
+
+.messageform .hidden {
+  height: 0px;
+  margin: 0px;
+}
+

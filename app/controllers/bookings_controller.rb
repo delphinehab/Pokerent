@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @pokemon = Pokemon.find(@booking.pokemon_id)
     @conversation = Conversation.find_by(booking_id: @booking.id)
     @messages = Message.where(conversation_id: @conversation.id)
     @message = Message.new(conversation_id: @conversation.id)

@@ -11,17 +11,18 @@
     <h5>Evolution level:  <%= @pokemon.evolution_level %></h5>
     <h5>Trainer: <%= @pokemon.user.email %></h5>
     <% if policy(@pokemon).update? %>
-      <%= link_to 'Update infos', edit_pokemon_path(@pokemon), :class => 'btn' %>
+      <%= link_to 'Update infos', edit_pokemon_path(@pokemon), :class => 'btn btn-primary' %>
+    <% end %>
+    <% if policy(@pokemon).destroy? %>
+      <%= link_to "Delete", pokemon_path(@pokemon), method: :delete, :class => 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
 
 </div>
-<%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-primary' %>
+<%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-book btn-primary' %>
 
-<% if policy(@pokemon).destroy? %>
-<%= link_to "Delete", pokemon_path(@pokemon), method: :delete, :class => 'btn btn-primary' %>
-<% end %>
+
 
 <h4>Reviews</h4>
 <% @reviews.each do |review| %>

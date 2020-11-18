@@ -3,6 +3,24 @@ li {
 }
 
 h1 {
-  text-decoration: underline;
   font-weight: bold;
 }
+
+.round-pokemon {
+  max-width: 100%;
+  max-width: 100%;
+}
+
+.pokemon-div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.img-pokemons {
+  display: flex;
+  width: 90%;
+}
+
+
+

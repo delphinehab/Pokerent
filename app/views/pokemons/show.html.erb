@@ -30,10 +30,10 @@
   <% @reviews.each do |review| %>
     <% if review.booking.pokemon == @pokemon %>
       <div class="review">
-        <p><%= review.content %>
+        <p><strong><%= review.content %></strong>
         <br>
         <%= review.booking.user.email %>
-        <%= link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Are you sure?"}%>
+        <% link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Are you sure?"}%>
         </p>
       </div>
     <% end %>

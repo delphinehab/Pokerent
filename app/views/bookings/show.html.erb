@@ -1,9 +1,18 @@
-<h1>Your booking</h1>
 
-<ul>
-  <li>The Pokemon: <%=@booking.pokemon.name%></li>
-  <li>The user : <%= @booking.user.email %>  </li>
-</ul>
+<div class="card-product">
+  <%if @pokemon.photo.attached? %>
+      <%= cl_image_tag @pokemon.photo.key, class: "card-product-img" %>
+    <% end %>
+  <div class="card-product-infos">
+    <h2>Your booking</h2>
+    <ul>
+      <li>Pokemon: <%=@booking.pokemon.name%></li>
+      <li>User : <%= @booking.user.email %>  </li>
+      <li>Owner : <%=@pokemon.user.email  %> </li>
+    </ul>
+  </div>
+</div>
+<br>
 
 <p><%= link_to 'Add a review', new_booking_review_path(@booking) %></p>
 
@@ -11,12 +20,11 @@
 <br>
 
 <% @messages.each do |message| %>
+
 <div class="message">
 <p><strong><%= message.content %></strong></p>
-
 <div class="author"><%= User.find(message.user_id).email %></div>
 </div>
-<% end %>
 
 <div class="messageform">
 <%= simple_form_for @message do |f| %>

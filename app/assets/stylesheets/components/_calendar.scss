@@ -1,7 +1,12 @@
 .simple-calendar {
-  .day {}
+  .user-choice {
+    background-color: #ffef0096;
+  }
+  text-align: center;
+  .day {
+  }
 
-  .wday-0 {}
+  .wday-0 {color: red;  }
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
@@ -9,7 +14,14 @@
   .wday-5 {}
   .wday-6 {color: red;}
 
-  .today {background-color: blue;}
+  .today .round{
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    background-color: #b4e6b4;
+    border-radius: 70px;
+
+  }
   .past {}
   .future {}
 

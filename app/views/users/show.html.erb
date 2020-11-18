@@ -1,18 +1,20 @@
-<h4>My bookings</h4>
+<h1>My bookings</h1>
+
 <ul>
-<% @bookings.each do |booking| %>
-<li><%= booking.pokemon.name %> 
-rented from
-<%= booking.pokemon.user.email %>
-</li>
-<%= link_to "Booking details", booking_path(booking) %>
-<% end %>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.pokemon.name %>
+      rented from
+      <%= booking.pokemon.user.email %>
+    </li>
+    <%= link_to "Booking details", booking_path(booking) %>
+  <% end %>
 </ul>
 
-<h4>My pokemons</h4>
+<h1>My pokemons</h1>
+
 <ul>
-<% @pokemons.each do |pokemon| %>
-<li><%= pokemon.name %>
-</li>
-<% end %>
+  <% @pokemons.each do |pokemon| %>
+    <li><%= pokemon.name %>
+    </li>
+  <% end %>
 </ul>

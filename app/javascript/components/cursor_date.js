@@ -5,8 +5,12 @@ const cursorDate = () => {
   const inputDate = document.querySelector("#booking_date")
   allCursors.forEach((element) => {
     element.addEventListener("click", (event) => {
-      console.log(element.querySelector("span").innerText)
-      console.log(inputDate)
+      const userchoice = element.querySelector(".round")
+        if (userchoice.classList.contains("user-choice")) {
+          userchoice.classList.remove("user-choice");
+        } else {
+          userchoice.classList.add("user-choice");
+        }
       inputDate.value = element.querySelector("span").innerText;
     });
   });

@@ -1,10 +1,12 @@
 <h1>My bookings</h1>
+
 <ul>
   <% @bookings.each do |booking| %>
     <li><%= booking.pokemon.name %>
       rented from
       <%= booking.pokemon.user.email %>
     </li>
+    <%= link_to "Booking details", booking_path(booking) %>
   <% end %>
 </ul>
 
@@ -16,41 +18,3 @@
     </li>
   <% end %>
 </ul>
-
-
-<header class="page-header">
-  <nav>
-    <a href="#0">
-      <img class="logo" src="logo.svg" alt="forecastr logo">
-    </a>
-    <button class="toggle-mob-menu" aria-expanded="false" aria-label="open menu">
-      <svg width="20" height="20" aria-hidden="true">
-        <use xlink:href="#down"></use>
-      </svg>
-    </button>
-    <ul class="admin-menu">
-      <li class="menu-heading">
-        <h3>Admin</h3>
-      </li>
-      <li>
-        <a href="#0">
-          <svg>
-            <use xlink:href="#pages"></use>
-          </svg>
-          <span>Pages</span>
-        </a>
-      </li>
-
-      <!-- more list items here -->
-
-      <li>
-        <button class="collapse-btn" aria-expanded="true" aria-label="collapse menu">
-          <svg aria-hidden="true">
-            <use xlink:href="#collapse"></use>
-          </svg>
-          <span>Collapse</span>
-        </button>
-      </li>
-    </ul>
-  </nav>
-</header>

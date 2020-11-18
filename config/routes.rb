@@ -7,6 +7,16 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:new, :create, :show, :edit, :update, :destroy]
+
+  resources :bookings do 
+    resources :pokemons
+    resources :conversations do 
+      resources :messages
+    end 
+  end 
+
+  resources :messages
+
   resources :users
 
   resources :users, only: [:show]

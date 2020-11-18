@@ -7,12 +7,15 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
+
 <div class="cards">
 
 <% @pokemons.each do |pokemon| %>
 
       <div class="card" style="width: 15rem">
-        <%= image_tag 'pika.png', class: "card-img-top" %>
+        <%if pokemon.photo.attached? %>
+          <%= cl_image_tag pokemon.photo.key, class: "card-img-top" %>
+        <% end %>
         <div class="card-body">
           <h4 class="card-title">
             <%= pokemon.name %>

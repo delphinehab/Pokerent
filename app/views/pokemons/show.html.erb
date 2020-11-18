@@ -3,7 +3,7 @@
 <div class="row">
 
   <div class="pokemon-image col-4">
-    <%if @pokemon.photo != nil %>
+    <%if @pokemon.photo.attached? %>
       <%= cl_image_tag @pokemon.photo.key, crop: :fill , class: "product-img" %>
     <% end %>
   </div>

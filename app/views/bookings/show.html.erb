@@ -1,8 +1,25 @@
 <h1>Your booking</h1>
 
 <ul>
-  <li>Your Pokemon <%=@booking.pokemon.name%></li>
+  <li>The Pokemon: <%=@booking.pokemon.name%></li>
   <li>The user : <%= @booking.user.email %>  </li>
 </ul>
 
 <h2>Conversation: </h2>
+<br>
+
+<% @messages.each do |message| %>
+<li><%= message.content %></li>
+by 
+<%= User.find(message.user_id).email %>
+<br>
+<br>
+<% end %>
+
+<br>
+<br>
+<%= simple_form_for @message do |f| %>
+  <%= f.input :content %>
+  <%= f.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
+  <%= f.button :submit %>
+<% end %>

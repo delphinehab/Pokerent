@@ -3,15 +3,15 @@
 
     <div class="card" style="width: 30rem">
       <h1>MY BOOKINGS</h1>
-      <ul>
+      <div class="img-pokemons justify-content-around">
         <% @bookings.each do |booking| %>
-        <li><%= booking.pokemon.name %>
-          rented from
-          <%= booking.pokemon.user.email %>
-        </li>
-        <%= link_to "Booking details", booking_path(booking) %>
+          <div class="pokemon-div">
+            <%= link_to booking_path(booking) do %>
+              <%= cl_image_tag booking.pokemon.photo.key, class: 'round-pokemon' %>
+            <% end %>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
 
     <div class="card" style="width: 30rem">

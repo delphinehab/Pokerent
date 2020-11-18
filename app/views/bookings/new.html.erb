@@ -8,7 +8,9 @@
 
 <%= month_calendar pokemon: @bookings do |date, bookings| %>
 <div class="cursor" style="cursor: pointer;">
+  <div class="round">
   <%= date.day %>
+  </div>
   <span style="display: none"><%= date %></span>
 </div>
 

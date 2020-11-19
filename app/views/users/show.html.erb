@@ -20,7 +20,14 @@
         <% @pokemons.each do |pokemon| %>
           <div class="pokemon-div">
             <%= link_to pokemon_path(pokemon) do %>
-              <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
+              <% if pokemon.photo.attached? %>
+                <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
+              <% else %>
+                <div class = "anonym-pokemon">
+                  <div class="pokemon-name"> <%= pokemon.name %> </div>
+                  <div class="pokemon-element"> <%= image_tag "#{pokemon.element}.png"%></div>
+                </div>
+              <% end %>
             <% end %>
           </div>
         <% end %>

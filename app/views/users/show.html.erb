@@ -15,6 +15,14 @@
               <% end %>
             <% end %>
           </div>
+          <div class="card-product-booking-infos">
+            <h6>Date: <%=booking.date %></h6>
+            <%if booking.status %>
+              <p>Booking status : confirmed</p>
+            <% else %>
+              <p>Booking status : refused</p>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -51,12 +59,14 @@
                         <% end %>
                       </div>
                     <% elsif booking.status %>
-                      <p>Validated</p>
+                      <p>Booking status : confirmed</p>
                     <% else %>
-                      <p>Refused</p>
+                      <p>Booking status : refused</p>
                     <% end %>
                     <p><%= link_to "Booking info", booking_path(booking) %></p>
                   <% end %>
+              <% elsif pokemon.bookings == nil %>
+                <h6>No bookings yet</h6>
               <% end %>
             </div>
           </div>

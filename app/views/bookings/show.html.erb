@@ -1,29 +1,30 @@
 <div class="container ptpb">
-  <h1>Your bookings</h1>
+  <h1>Your booking</h1>
   <br>
   <div class="card-product">
     <%if @pokemon.photo.attached? %>
       <%= cl_image_tag @pokemon.photo.key, class: "card-product-img" %>
     <% end %>
     <div class="card-product-infos">
-      <h2>Your booking</h2>
       <ul>
-        <li>Pokemon: <%=@booking.pokemon.name%></li>
-        <li>Date: <%= @booking.date %> </li>
-        <li>User : <%= @booking.user.email %>  </li>
-        <li>Owner : <%=@pokemon.user.email  %> </li>
+        <li><h5><%=@booking.pokemon.name%></h5></li>
+        <br>
+        <li><h6>Date: </h6> <%= @booking.date %> </li>
+        <br>
+        <li><h6>Owner : </h6> <%=@pokemon.user.email  %> </li>
       </ul>
     </div>
     <div class="card-product-infos">
-      <h2>Booking status:
+      <h6>Booking status :
         <% if @booking.status == nil %>
-            <p>Pending</p>
+              <br>
+              <p style="color:pink">Waiting for confirmation</p>
         <% elsif @booking.status == true %>
-          <p>Confirmed</p>
+          <p style="color:green">Confirmed</p>
         <% else %>
-          <p>Refused</p>
+          <p style="color:red">Refused</p>
         <% end %>
-      </h2>
+      </h6>
     </div>
   </div>
 <br>

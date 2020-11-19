@@ -1,14 +1,17 @@
 .calendar_show{
   display: flex;
+  justify-content: space-around;
 }
 
 .calendar_container {
-  width: 100%;
+  margin-bottom: 30px;
+  width: 60%;
   box-shadow: 10px 10px 40px grey;
 }
 
 .calendar_form {
   width: 20%;
+  margin-left: 30px;
 }
 
 .cursor-past{
@@ -16,7 +19,7 @@
 }
 
 .pokemon_show {
-  background-color: yellow;
+  width: 30%;
 }
 
 .simple-calendar {
@@ -55,8 +58,6 @@
   .next-month { }
   .current-month {}
 
-  .has-events {}
-
-
+  .has-events {color: blue;}
 }
 

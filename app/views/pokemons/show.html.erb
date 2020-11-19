@@ -22,7 +22,10 @@
 </div>
 
 </div>
-<%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-book btn-primary' %>
+<% if @pokemon.user != current_user %>
+  <%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-book btn-primary' %>
+<% end %>
+
 
 
 

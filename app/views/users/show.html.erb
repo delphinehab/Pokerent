@@ -14,18 +14,21 @@
       </div>
     </div>
 
-    <div class="card" style="width: 30rem">
-      <h1>MY POKEMONS</h1>
-      <div class="img-pokemons justify-content-around">
-        <% @pokemons.each do |pokemon| %>
-          <div class="pokemon-div">
-            <%= link_to pokemon_path(pokemon) do %>
-              <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
-            <% end %>
-          </div>
-        <% end %>
+    <% if current_user.pokemons.count > 0 %>
+      <div class="card" style="width: 30rem">
+        <h1>MY POKEMONS</h1>
+        <div class="img-pokemons justify-content-around">
+          <% @pokemons.each do |pokemon| %>
+            <div class="pokemon-div">
+              <%= link_to pokemon_path(pokemon) do %>
+                <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
+
 
     <div class="card" style="width: 30rem">
       <h1>MY INFOS</h1>

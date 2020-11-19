@@ -1,68 +1,67 @@
 <div class="container ptpb">
+  <div class="cards">
+    <div class="card" style="width: 30rem">
+      <h1>MY BOOKINGS</h1>
+      <div class="img-pokemons justify-content-around">
+        <% @bookings.each do |booking| %>
+          <div class="pokemon-div">
+            <%= link_to booking_path(booking) do %>
+              <% if booking.pokemon.photo.attached? %>
+                <%= cl_image_tag booking.pokemon.photo.key, class: 'round-pokemon' %>
+              <% else %>
+                <!-- <div class="pokemon-element" style="background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 100%, rgba(247,247,247,0.5) 100%, rgba(255,255,255,1) 100%),url(<%= image_url("#{pokemon.element}.png")%>);">
+                  <h4 class="pokemon-name"><%= booking.pokemon.name %></h4>
+                </div> -->
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="container">
-    <div class="cards">
-
-      <div class="card" style="width: 30rem">
-        <h1>MY BOOKINGS</h1>
-        <div class="img-pokemons justify-content-around">
-          <% @bookings.each do |booking| %>
-            <div class="pokemon-div">
-              <%= link_to booking_path(booking) do %>
-                <% if booking.pokemon.photo.attached? %>
-                  <%= cl_image_tag booking.pokemon.photo.key, class: 'round-pokemon' %>
+    <div class="card" style="width: 30rem">
+      <h1>MY POKEMONS</h1>
+        <% @pokemons.each do |pokemon| %>
+          <div class="card-product-booking">
+            <div>
+              <%= link_to pokemon_path(pokemon) do %>
+                <% if pokemon.photo.attached?%>
+                  <%= cl_image_tag pokemon.photo.key, id:"card-product-booking-img" %>
                 <% else %>
-                  <div class="pokemon-element" style="background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 100%, rgba(247,247,247,0.5) 100%, rgba(255,255,255,1) 100%),url(<%= image_url("#{booking.pokemon.element}.png")%>);">
-                    <h4 class="pokemon-name"><%= booking.pokemon.name %></h4>
-                  <% end %>
+                  <!-- <div class="pokemon-element card-product-img" style="background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 100%, rgba(247,247,247,0.5) 100%, rgba(255,255,255,1) 100%),url(<%= image_url("#{pokemon.element}.png")%>);">
+                    <h4 class="pokemon-name"><%= pokemon.name %></h4>
+                  </div> -->
+                <% end %>
               <% end %>
             </div>
-          <% end %>
-        </div>
-      </div>
-      <% if current_user.pokemons.count > 0 %>
-        <div class="card" style="width: 30rem">
-          <h1>MY POKEMONS</h1>
-          <div class="img-pokemons justify-content-around">
-            <% @pokemons.each do |pokemon| %>
-              <div class="pokemon-div">
-                <%= link_to pokemon_path(pokemon) do %>
-                  <% if pokemon.photo.attached?%>
-                    <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
-                  <% else %>
-                    <div class="pokemon-element" style="background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 100%, rgba(247,247,247,0.5) 100%, rgba(255,255,255,1) 100%),url(<%= image_url("#{pokemon.element}.png")%>);">
-                      <h4 class="pokemon-name"><%= pokemon.name %></h4>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="poke-booking">
-                <% if pokemon.bookings %>
-                  <% pokemon.bookings.each do |booking| %>
-                    <%= link_to "Booking info", booking_path(booking) %>
+            <div class="card-product-booking-infos">
+              <% if pokemon.bookings %>
+                <% pokemon.bookings.each do |booking| %>
                     <% if booking.status == nil %>
-                      <p>Waiting for validation</p>
-                      <%= simple_form_for(booking) do |f| %>
+                      <h6>Pending booking </h6>
+                      <p> Date: <%= booking.date %></p>
+                      <div class="d-flex">
+                        <%= simple_form_for(booking) do |f| %>
                           <%= f.input :status, as: :hidden, input_html: {value: true} %>
-                          <%= f.submit "Validate" %>
-                      <% end %>
-                      <%= simple_form_for(booking) do |f| %>
+                          <%= f.submit "Confirm", class: "mr-3", id: "btn-booking"  %>
+                        <% end %>
+                        <%= simple_form_for(booking) do |f| %>
                           <%= f.input :status, as: :hidden, input_html: {value: false} %>
-                          <%= f.submit "Refuse" %>
-                      <% end %>
+                          <%= f.submit "Refuse", id: "btn-booking" %>
+                        <% end %>
+                      </div>
                     <% elsif booking.status %>
                       <p>Validated</p>
                     <% else %>
                       <p>Refused</p>
                     <% end %>
+                    <p><%= link_to "Booking info", booking_path(booking) %></p>
                   <% end %>
-                <% end %>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
-
+        <% end %>
+    </div>
 
       <div class="card" style="width: 30rem">
         <h1>MY INFOS</h1>
@@ -76,7 +75,5 @@
         <p>My email : <%= @user.email %></p>
         <p><%= link_to 'Edit my profile', edit_user_path(@user) %></p>
       </div>
-
     </div>
   </div>
-</div>

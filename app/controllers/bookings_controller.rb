@@ -11,6 +11,11 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @already_booked = []
+    @pokemon = Pokemon.find(params[:pokemon_id])
+    @pokemon.bookings.all.each do |booked|
+      @already_booked << booked.date
+    end
     @booking = Booking.new
   end
 

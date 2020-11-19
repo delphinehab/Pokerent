@@ -13,7 +13,6 @@
         <% end %>
       </div>
     </div>
-
     <% if current_user.pokemons.count > 0 %>
       <div class="card" style="width: 30rem">
         <h1>MY POKEMONS</h1>
@@ -22,6 +21,10 @@
             <div class="pokemon-div">
               <%= link_to pokemon_path(pokemon) do %>
                 <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
+              <% else %>
+                <div class="pokemon-element" style="background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 100%, rgba(247,247,247,0.5) 100%, rgba(255,255,255,1) 100%),url(<%= image_url("#{pokemon.element}.png")%>);">
+                  <h4 class="pokemon-name"><%= pokemon.name %></h4>
+                </div>
               <% end %>
             </div>
             <div class="poke-booking">

@@ -6,11 +6,12 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
   def new
+    @already_booked = []
+    @pokemon = Pokemon.find(params[:pokemon_id])
+    @pokemon.bookings.all.each do |booked|
+      @already_booked << booked.date
+    end
     @booking = Booking.new
   end
 
@@ -28,13 +29,15 @@ class BookingsController < ApplicationController
     redirect_to booking_path(@booking)
   end
 
-
   def create
     @pokemon = Pokemon.find(params[:booking][:pokemon_id])
-    date = params[:booking][:date].to_date
-    @booking = Booking.new(date: date)
-    @booking.pokemon = @pokemon
-    @booking.user = current_user
+    params[:booking][:date].split(",").each do |date|
+      date.to_date
+      @booking = Booking.new(date: date)
+      @booking.pokemon = @pokemon
+      @booking.user = current_user
+      @booking.save
+    end
     if @booking.save
       @conversation = Conversation.new
       @conversation.booking = @booking

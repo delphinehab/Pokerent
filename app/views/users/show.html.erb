@@ -20,11 +20,13 @@
           <% @pokemons.each do |pokemon| %>
             <div class="pokemon-div">
               <%= link_to pokemon_path(pokemon) do %>
-                <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
-              <% else %>
-                <div class="pokemon-element" style="background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 100%, rgba(247,247,247,0.5) 100%, rgba(255,255,255,1) 100%),url(<%= image_url("#{pokemon.element}.png")%>);">
-                  <h4 class="pokemon-name"><%= pokemon.name %></h4>
-                </div>
+                <% if pokemon.photo.attached?%>
+                  <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
+                <% else %>
+                  <div class="pokemon-element" style="background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 100%, rgba(247,247,247,0.5) 100%, rgba(255,255,255,1) 100%),url(<%= image_url("#{pokemon.element}.png")%>);">
+                    <h4 class="pokemon-name"><%= pokemon.name %></h4>
+                  </div>
+                <% end %>
               <% end %>
             </div>
             <div class="poke-booking">

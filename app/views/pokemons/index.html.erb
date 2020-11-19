@@ -27,9 +27,13 @@
 
       <div class="card">
         <% if pokemon.user == current_user %>
-          <div class="my-poke">
-          <%= current_user.email.chars.first.upcase %>
-          </div>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar-card-owner" %>
+            <% else %>
+              <div class="my-poke">
+                <%= current_user.email.chars.first.upcase %>
+              </div>
+            <% end %>
         <% end %>
         <%if pokemon.photo.attached? %>
           <%= link_to pokemon_path(pokemon) do %>

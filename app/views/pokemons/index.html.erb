@@ -1,20 +1,31 @@
+<% unless params[:query].present? %>
+<div class="banner" style="background-image: url('assets/pokelist.png');">
+    <h1 class="text-center">Find the best pokemon for you!</h1>
+</div>
+<% end %>
+
+<div class="container ptpb">
 <%= form_tag pokemons_path, method: :get do %>
+<div class="searchcontainer">
+  <div class="row justify-content-between">
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
-    placeholder: "Find a pokemon"
+    class: "form-control searchbar col-9",
+    placeholder: "Find a pokemon..."
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "SEARCH", class: "btn btn-primary col-2 searchbtn" %>
+  </div>
+</div>
 <% end %>
 
 
-<h4>Featured pokemons</h4>
+<h4 class="intro">Featured pokemons</h4>
 
 <div class="cards">
 
 <% @pokemons.each do |pokemon| %>
 
-      <div class="card" style="width: 15rem">
+      <div class="card">
         <%if pokemon.photo.attached? %>
           <%= cl_image_tag pokemon.photo.key, class: "card-img-top" %>
         <% end %>
@@ -33,4 +44,5 @@
       </div>
 
 <% end %>
+</div>
 </div>

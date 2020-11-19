@@ -4,9 +4,9 @@
 // 3. You can override them below!
 
 // General style
-$font-family-sans-serif:  $body-font;
-$headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$font-family-sans-serif:  'Open Sans', sans-serif;
+$headings-font-family:    'Fjalla One', sans-serif;
+$body-bg:                 #f6f6f6;
 $font-size-base: 1rem;
 
 // Colors
@@ -23,3 +23,22 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1500px
+) !default;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1440px
+) !default;
+
+.container {
+  padding-top: 30px;
+}

@@ -1,5 +1,27 @@
 // Specific CSS for your home-page
 .ptpb {
-padding-top: 90px;
+padding-top: 30px;
 padding-bottom: 150px;
 }
+
+.searchbar {
+  position: relative;
+  height: 80px;
+  width: 100%;
+  border-radius: 0%;
+  margin-left: 15px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.searchbtn {
+  height: 80px;
+  margin-top: 20px; 
+  border: 0px; 
+  border-radius: 0%;
+  margin-right: 15px;
+  font-weight: bolder;
+  font-size: 18px;
+  background-color: #FFE738;
+}
+

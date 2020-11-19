@@ -22,6 +22,13 @@ class BookingsController < ApplicationController
     @message = Message.new(conversation_id: @conversation.id)
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
+  end
+
+
   def create
     @pokemon = Pokemon.find(params[:booking][:pokemon_id])
     date = params[:booking][:date].to_date
@@ -42,6 +49,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:date, :status)
   end
 end

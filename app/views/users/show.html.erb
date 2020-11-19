@@ -24,6 +24,28 @@
                 <%= cl_image_tag pokemon.photo.key, class: 'round-pokemon'  %>
               <% end %>
             </div>
+            <div class="poke-booking">
+              <% if pokemon.bookings %>
+                <% pokemon.bookings.each do |booking| %>
+                  <%= link_to "Booking info", booking_path(booking) %>
+                  <% if booking.status == nil %>
+                    <p>Waiting for validation</p>
+                    <%= simple_form_for(booking) do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: {value: true} %>
+                        <%= f.submit "Validate" %>
+                    <% end %>
+                    <%= simple_form_for(booking) do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: {value: false} %>
+                        <%= f.submit "Refuse" %>
+                    <% end %>
+                  <% elsif booking.status %>
+                    <p>Validated</p>
+                  <% else %>
+                    <p>Refused</p>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>

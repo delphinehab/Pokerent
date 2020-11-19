@@ -1,3 +1,5 @@
+<div class="container ptpb">
+
 <H3>Book Your Pokemon</H3>
 
 <div class="calendar_container">
@@ -28,3 +30,5 @@
   <%= f.input :date, label: "Date of Booking", as: :string, start_year: Time.now.year - 90, end_year: Time.now.year - 8, order: [:day, :month, :year]%>
   <%= f.button :submit %>
 <% end %>
+
+</div>

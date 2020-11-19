@@ -6,18 +6,16 @@
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap', 'https://fonts.googleapis.com/css?family=Open+Sans&subset=latin', 'https://fonts.googleapis.com/css2?family=Poppins&display=swap', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
 
   <%= render 'shared/navbar' %>
-  <div class="container ptpb">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-  </div>
   <%= render 'shared/footer' %>
   </body>
 </html>

@@ -1,4 +1,4 @@
-
+<div class="container ptpb">
 <div class="card-product">
   <%if @pokemon.photo.attached? %>
       <%= cl_image_tag @pokemon.photo.key, class: "card-product-img" %>
@@ -43,4 +43,5 @@
   <%= f.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
   <%= f.button :submit %>
 <% end %>
+</div>
 </div>

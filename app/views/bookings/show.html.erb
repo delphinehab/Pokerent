@@ -11,6 +11,16 @@
       <li>Owner : <%=@pokemon.user.email  %> </li>
     </ul>
   </div>
+  <div class="booking-status">
+    <h2>Booking status</h2>
+    <% if @booking.status == nil %>
+        <p>Pending</p>
+    <% elsif @booking.status == true %>
+      <p>Validated</p>
+    <% else %>
+      <p>Refused</p>
+    <% end %>
+  </div>
 </div>
 <br>
 

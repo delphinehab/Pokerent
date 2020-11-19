@@ -7,6 +7,10 @@
   <div class="pokemon-image col-4">
     <%if @pokemon.photo.attached? %>
       <%= cl_image_tag @pokemon.photo.key, crop: :fill , class: "product-img" %>
+    <% else %>
+      <div class="pokemon-product" style="background-image: url(<%= image_url("#{@pokemon.element}.png")%>);">
+        <h4 class="pokemon-name"><%= @pokemon.name %></h4>
+      </div>
     <% end %>
   </div>
   <div class="pkm-description col-8">
@@ -24,7 +28,10 @@
 </div>
 
 </div>
-<%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-book btn-primary' %>
+<% if @pokemon.user != current_user %>
+  <%= link_to 'Book me', new_pokemon_booking_path(@pokemon), :class => 'btn btn-book btn-primary' %>
+<% end %>
+
 
 
 

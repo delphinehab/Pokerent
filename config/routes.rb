@@ -13,19 +13,17 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]
 
 
-  resources :bookings do 
+  resources :bookings do
     resources :pokemons
-    resources :conversations do 
+    resources :conversations do
       resources :messages
-    end 
-  end 
+    end
+  end
 
   resources :messages
 
 
   resources :users
-
-  resources :users, only: [:show]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

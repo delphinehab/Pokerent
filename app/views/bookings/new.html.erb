@@ -1,34 +1,60 @@
-<div class="container ptpb">
+<div class="container show_booking ptpb">
+  <h3>Book Your Pokemon</h3>
 
-<H3>Book Your Pokemon</H3>
-
-<div class="calendar_container">
-  <div id="calendar">
-  </div>
-</div>
-
-
-<%= month_calendar pokemon: @bookings do |date, bookings| %>
-<div class="cursor" style="cursor: pointer;">
-  <div class="round">
-  <%= date.day %>
-  </div>
-  <span style="display: none"><%= date %></span>
-</div>
-
-  <% bookings.each do |booking| %>
-    <div>
-      <%= booking.start_time %>
+  <div class="calendar_show">
+    <div class="calendar_container">
+      <% @already_booked %>
+      <%= month_calendar pokemon: @bookings do |date, bookings| %>
+        <% if date > DateTime.current.to_date %>
+          <div class="cursor" style="cursor: pointer;">
+            <div class="round">
+            <%= date.day %>
+            </div>
+            <span style="display: none"><%= date %></span>
+          </div>
+         <% else %>
+          <div class="cursor-past" style="cursor: pointer;">
+            <div class="round">
+            <%= date.day %>
+            </div>
+            <span style="display: none"><%= date %></span>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-  <% end %>
 
-<% end %>
+<div class="card">
+        <%if @pokemon.photo.attached? %>
+          <%= link_to pokemon_path(@pokemon) do %>
+            <%= cl_image_tag @pokemon.photo.key, class: "card-img-top" %>
+          <% end %>
+        <% else %>
+          <div class="pokemon-product-index" style="background-image: url(<%= image_url("#{pokemon.element}.png")%>);">
+            <h4 class="pokemon-name"><%= pokemon.name %></h4>
+          </div>
+        <% end %>
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= @pokemon.name %>
+            <%= image_tag "#{@pokemon.element}.png", class: "element" %>
+          </h4>
+          <p>
+            <%= @pokemon.description %>
+          </p>
+          <% if policy(@pokemon).show? %>
+          <%= link_to 'See more', pokemon_path(@pokemon), :class => 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
 
 
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :pokemon_id, :as => :hidden, :input_html => { :value => params[:pokemon_id] } %>
-  <%= f.input :date, label: "Date of Booking", as: :string, start_year: Time.now.year - 90, end_year: Time.now.year - 8, order: [:day, :month, :year]%>
-  <%= f.button :submit %>
-<% end %>
+  </div>
 
+  <div class="calendar_form">
+    <%= simple_form_for @booking, wrapper: :inline_form do |f| %>
+      <%= f.input :pokemon_id, :as => :hidden, :input_html => { :value => params[:pokemon_id] } %>
+      <%= f.input :date, label: "Date of Booking", as: :string, as: :hidden%>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
 </div>

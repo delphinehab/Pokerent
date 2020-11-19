@@ -1,0 +1,13 @@
+<div class="container ptpb">
+  <h1>Edit my profile</h1>
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :email %>
+    <%#= f.input :current_password %>
+    <%#= f.input :password %>
+    <%#= f.input :password_confirmation %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Save", class: 'btn btn-primary' %>
+  <% end %>
+</div>

@@ -9,7 +9,12 @@
         <% @bookings.each do |booking| %>
           <div class="pokemon-div">
             <%= link_to booking_path(booking) do %>
-              <%= cl_image_tag booking.pokemon.photo.key, class: 'round-pokemon' %>
+              <% if booking.pokemon.photo.attached? %>
+                <%= cl_image_tag booking.pokemon.photo.key, class: 'round-pokemon' %>
+              <% else %>
+                <div class="pokemon-element" style="background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 100%, rgba(247,247,247,0.5) 100%, rgba(255,255,255,1) 100%),url(<%= image_url("#{booking.pokemon.element}.png")%>);">
+                  <h4 class="pokemon-name"><%= booking.pokemon.name %></h4>
+                <% end %>
             <% end %>
           </div>
         <% end %>

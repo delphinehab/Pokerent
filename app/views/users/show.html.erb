@@ -66,8 +66,10 @@
 
       <div class="card" style="width: 30rem">
         <h1>MY INFOS</h1>
-        <%if @user.photo.attached? %>
+        <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key %>
+        <% else %>
+          <p><%= link_to 'Choose a profile picture', edit_user_path(@user) %></p>
         <% end %>
         <p>First name : <%= @user.firstname %></p>
         <p>Last name : <%= @user.lastname %></p>

@@ -15,6 +15,11 @@
 <% @pokemons.each do |pokemon| %>
 
       <div class="card" style="width: 15rem">
+        <% if pokemon.user == current_user %>
+          <div class="my-poke">
+          <%= current_user.email.chars.first.upcase %>
+          </div>
+        <% end %>
         <%if pokemon.photo.attached? %>
           <%= cl_image_tag pokemon.photo.key, class: "card-img-top" %>
         <% end %>

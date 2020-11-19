@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   skip_after_action :verify_authorized
 
   def show
@@ -21,6 +20,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
   end
 end

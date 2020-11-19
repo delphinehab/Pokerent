@@ -24,7 +24,7 @@
 <div class="cards">
 
 <% @pokemons.each do |pokemon| %>
-  
+
       <div class="card">
         <% if pokemon.user == current_user %>
           <div class="my-poke">
@@ -32,7 +32,9 @@
           </div>
         <% end %>
         <%if pokemon.photo.attached? %>
-          <%= cl_image_tag pokemon.photo.key, class: "card-img-top" %>
+          <%= link_to pokemon_path(pokemon) do %>
+            <%= cl_image_tag pokemon.photo.key, class: "card-img-top" %>
+          <% end %>
         <% else %>
           <div class="pokemon-product-index" style="background-image: url(<%= image_url("#{pokemon.element}.png")%>);">
             <h4 class="pokemon-name"><%= pokemon.name %></h4>

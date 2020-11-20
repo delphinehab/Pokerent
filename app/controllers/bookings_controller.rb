@@ -31,21 +31,31 @@ class BookingsController < ApplicationController
 
   def create
     @pokemon = Pokemon.find(params[:booking][:pokemon_id])
-    params[:booking][:date].split(",").each do |date|
+    if params[:booking][:date] == ""
+      @booking = Booking.new
+      render :new
+    else
+      params[:booking][:date].split(",").each do |date|
       date.to_date
+      @bookings = []
       @booking = Booking.new(date: date)
+      @conversation = Conversation.new
       @booking.pokemon = @pokemon
       @booking.user = current_user
-      @booking.save
-      @conversation = Conversation.new
       @conversation.booking = @booking
       @conversation.save
+      @booking.save
+      @bookings << @booking
       end
-      if @booking.save
-        redirect_to user_path(@booking.user)
-      else
-        @booking = Booking.new
-        render :new
+    end
+    if @booking.nil?
+      @booking = Booking.new
+      render :new
+    elsif @bookings.each(&:save)
+      redirect_to user_path(@booking.user)
+    else
+      @booking = Booking.new
+      render :new
     end
   end
 

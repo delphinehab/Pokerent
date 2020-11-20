@@ -17,7 +17,18 @@
     <div class="card-product-infos">
       <h6>Booking status :
         <% if @booking.status == nil %>
-              <p style="color:pink">Waiting for confirmation</p>
+            <p style="color:pink">Waiting for confirmation</p>
+            <div class="d-flex">
+              <%= simple_form_for(@booking) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: {value: true} %>
+                <%= f.submit "Confirm", class: "mr-3", id: "btn-booking"  %>
+              <% end %>
+              <%= simple_form_for(@booking) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: {value: false} %>
+                <%= f.submit "Refuse", id: "btn-booking" %>
+              <% end %>
+            </div>
+
         <% elsif @booking.status == true %>
           <p style="color:green">Confirmed</p>
         <% else %>

@@ -36,4 +36,4 @@ document.addEventListener('turbolinks:load', () => {
   cursorDate();
 });
 
-ScrollReveal().reveal('.card', { delay: 500 });
+ScrollReveal().reveal('.card', { delay: 800 });

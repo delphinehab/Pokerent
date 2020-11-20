@@ -29,11 +29,13 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { cursorDate } from '../components/cursor_date';
+import { searchAuto } from '../components/search_auto_complete';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   cursorDate();
+  searchAuto();
 });
 
 ScrollReveal().reveal('.style0', { delay: 300 });

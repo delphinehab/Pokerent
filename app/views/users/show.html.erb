@@ -1,6 +1,6 @@
 <div class="container ptpb">
   <div class="cards">
-    <div class="card" style="width: 30rem">
+    <div class="card dash" style="width: 48%">
       <h1>MY BOOKINGS</h1>
         <div class="card-container">
         <% @bookings.each do |booking| %>
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div class="card" style="width: 30rem">
+    <div class="card dash" style="width: 48%">
       <h1>MY POKEMONS</h1>
         <div class="card-container">
         <% @pokemons.each do |pokemon| %>
@@ -48,7 +48,7 @@
                   <%= cl_image_tag pokemon.photo.key, id:"card-product-booking-img" %>
                 <% end %>
                 <div class="card-product-booking-infos">
-                <h6>Not booked yet</h6>
+                <p>Not booked yet</p>
                 </div>
 
               <% else %>
@@ -90,7 +90,7 @@
       </div>
     </div>
 
-      <div class="card" style="width: 30rem">
+      <div class="card" style="width: 97.5%">
         <h1>MY ACCOUNT</h1>
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, class: "avatar-my-account" %>

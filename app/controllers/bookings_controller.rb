@@ -40,13 +40,19 @@ class BookingsController < ApplicationController
       @conversation = Conversation.new
       @conversation.booking = @booking
       @conversation.save
-      end
-      if @booking.save
-        redirect_to user_path(@booking.user)
-      else
-        @booking = Booking.new
-        render :new
     end
+    if @booking.save
+      redirect_to user_path(@booking.user)
+    else
+      @booking = Booking.new
+      render :new
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to user_path(current_user)
   end
 
   private

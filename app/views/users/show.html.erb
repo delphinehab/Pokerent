@@ -25,6 +25,9 @@
                 <% else %>
                   <p style="color:red">Refused</p>
                 <% end %>
+                <p><%= link_to booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %></p>
             </div>
           </div>
         <% end %>

@@ -1,22 +1,70 @@
 .pokemon-image {
   align-items: center;
-  height: 300px;
+  height: 380px;
+  background-color: white;
+  border: 1px solid darkgrey;
 }
 .product-img {
-  height: 250px;
+  height: 300px;
   display: block;
   margin: auto;
   padding-top: 50px;
 }
 
 .pkm-description {
-  padding-left: 40px;
-  padding-top: 20px;
-  padding-right: 40px;
+  background-color: white;
+  border: 1px solid darkgrey;
+  padding: 30px;
+  height: 240px; 
+}
+
+.pkm-trainer {
+  background-color: white;
+  border: 1px solid darkgrey;
+  padding: 30px;
+  padding-top: 40px; 
+  margin-top: 30px; 
+  height: 110px; 
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.pkm-trainer .avatar {
+  position: absolute;
+  top: 35px
+}
+
+.pkm-trainer p {
+  position: absolute;
+  top: 40px;
+  left: 100px; 
+}
+
+.pkm-trainer .btn {
+  position: absolute;
+  margin-top: -5px; 
+  right: -500px; 
+
+}
+
+.pkm-trainer .btn-delete {
+  right: -580px; 
 }
 
 .pkm-description h4 {
   font-weight: bolder;
+  margin-bottom: 15px;
+}
+
+.pkm-description h5 {
+  font-size: 18px;
+  position: absolute; 
+  top: 10px; 
+  right: 40px
+}
+
+.pkm-description p {
+  font-size: 14px;
 }
 
 .pkm-description .element {
@@ -25,7 +73,6 @@
 }
 
 .pkm-description h4 {
-  margin-top: 20px;
 }
 
 .pkm-description h5 {
@@ -33,7 +80,6 @@
 }
 
 .poke {
-  border: 3px solid gold;
   margin-top: 30px;
 }
 
@@ -48,15 +94,28 @@
 
 .btn-book {
   background-color: black;
+  margin-top: -15px; 
 }
 
 .review {
-  border: 1px solid gold;
+  border: 1px solid darkgrey;
+  background-color: white;
 }
 
+.review .avatar {
+  width: 18px; 
+  height: 18px;
+  margin-right: 10px;
+}
 .review p {
   margin-top: 15px;
-  margin-left: 10px
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.review .useremail {
+  font-size: 12px;
+  margin-left: 10px; 
 }
 
 h4 {
@@ -71,7 +130,7 @@ h4 {
   background-position: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
 }
 
 .pokemon-product-index {
@@ -85,3 +144,16 @@ h4 {
   justify-content: center;
 }
 
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.col-xl-4 {
+  max-width: 32%; 
+}
+
+.col-xl-8 {
+  max-width: 68%
+
+}

@@ -8,9 +8,10 @@
   padding: 16px;
   padding-bottom: 32px;
   text-align: justify;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   position: relative;
   height: 525px;
+  margin-right: 22px;
 }
 
 .intro {
@@ -37,7 +38,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-grow: 1;
 }
 
@@ -59,6 +60,10 @@
   right: 40px;
   font-weight: 600;
   border-radius: 5px;
+}
+
+.card .btn:hover {
+  background-color: darkgrey;
 }
 
 .card .element {

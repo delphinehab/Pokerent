@@ -69,6 +69,7 @@
                       <p style="color:red">Refused</p>
                     <% end %>
                     <p><%= link_to "Booking info", booking_path(booking) %></p>
+                    <p><%= link_to "Hide", user_path(@user) %></p>
                   <% end %>
               <% elsif pokemon.bookings == nil %>
                 <h6>Not booked yet</h6>

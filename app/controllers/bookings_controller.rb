@@ -58,12 +58,6 @@ class BookingsController < ApplicationController
       @booking = Booking.new
       render :new
     end
-    if @booking.save
-      redirect_to user_path(@booking.user)
-    else
-      @booking = Booking.new
-      render :new
-    end
   end
 
   def destroy

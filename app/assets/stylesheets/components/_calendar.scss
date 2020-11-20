@@ -1,8 +1,35 @@
+.calendar_show{
+  display: flex;
+  justify-content: space-around;
+}
+
+.calendar_container {
+  margin-bottom: 30px;
+  width: 60%;
+  box-shadow: 10px 10px 40px grey;
+}
+
+.calendar_form {
+  width: 20%;
+  margin-left: 30px;
+}
+
+.cursor-past{
+  color: #d0ceceba;
+}
+
+.pokemon_show {
+  width: 30%;
+}
+
 .simple-calendar {
+  margin: 20px;
+  text-align: center;
+
   .user-choice {
     background-color: #ffef0096;
   }
-  text-align: center;
+
   .day {
   }
 
@@ -27,9 +54,10 @@
 
   .start-date {}
 
-  .prev-month {}
+  .prev-month {display: none;}
   .next-month { }
   .current-month {}
 
-  .has-events {}
+  .has-events {color: blue;}
 }
+

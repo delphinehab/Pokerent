@@ -29,12 +29,18 @@
 <% @pokemons.each_with_index do |pokemon, i| %>
       <div class="card style<%=i%>">
         <% if pokemon.user == current_user %>
-          <div class="my-poke">
-          <%= current_user.email.chars.first.upcase %>
-          </div>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar-card-owner" %>
+            <% else %>
+              <div class="my-poke">
+                <%= current_user.email.chars.first.upcase %>
+              </div>
+            <% end %>
         <% end %>
         <%if pokemon.photo.attached? %>
-          <%= cl_image_tag pokemon.photo.key, class: "card-img-top" %>
+          <%= link_to pokemon_path(pokemon) do %>
+            <%= cl_image_tag pokemon.photo.key, class: "card-img-top" %>
+          <% end %>
         <% else %>
           <div class="pokemon-product-index" style="background-image: url(<%= image_url("#{pokemon.element}.png")%>);">
             <h4 class="pokemon-name"><%= pokemon.name %></h4>

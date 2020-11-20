@@ -2,9 +2,12 @@
 <div class="banner" style="background-image: url('assets/pokelist.png');">
     <h1 class="text-center">Find the best pokemon for you!</h1>
 </div>
+<div class="container">
+<% else %>
+<div class="container ptpb">
 <% end %>
 
-<div class="container">
+
 <%= form_tag pokemons_path, method: :get do %>
 <div class="searchcontainer">
   <div class="row justify-content-between">
@@ -23,9 +26,8 @@
 
 <div class="cards">
 
-<% @pokemons.each do |pokemon| %>
-
-      <div class="card">
+<% @pokemons.each_with_index do |pokemon, i| %>
+      <div class="card style<%=i%>">
         <% if pokemon.user == current_user %>
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar-card-owner" %>
@@ -57,7 +59,6 @@
           <% end %>
         </div>
       </div>
-
 <% end %>
 </div>
 </div>

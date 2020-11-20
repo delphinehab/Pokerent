@@ -1,9 +1,9 @@
 <div class="container ptpb">
   <h1>Edit my profile</h1>
   <%= simple_form_for @user do |f| %>
-    <%= f.input :firstname %>
-    <%= f.input :lastname %>
-    <%= f.input :email %>
+    <%= f.input :firstname, :label => "First Name" %>
+    <%= f.input :lastname, :label => "Last Name" %>
+    <%= f.input :email, :label => "Email" %>
     <%#= f.input :current_password %>
     <%#= f.input :password %>
     <%#= f.input :password_confirmation %>

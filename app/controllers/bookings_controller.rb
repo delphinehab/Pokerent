@@ -37,15 +37,15 @@ class BookingsController < ApplicationController
       @booking.pokemon = @pokemon
       @booking.user = current_user
       @booking.save
-    end
-    if @booking.save
       @conversation = Conversation.new
       @conversation.booking = @booking
       @conversation.save
-      redirect_to user_path(@booking.user)
-    else
-      @booking = Booking.new
-      render
+      end
+      if @booking.save
+        redirect_to user_path(@booking.user)
+      else
+        @booking = Booking.new
+        render :new
     end
   end
 

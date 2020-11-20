@@ -21,13 +21,16 @@
 </div>
 <% end %>
 
-
-<form autocomplete="off" action="/action_page.php">
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="pokemons" placeholder="Pika" data-pokemons="<%=@pokemons.pluck(:name).to_json%>">
+<div class="searchcontainer">
+   <div class="row justify-content-between">
+    <form autocomplete="off" action="/action_page.php">
+      <div class="autocomplete" style="width:300px;">
+        <input class="form-control searchbar col-9" id="myInput" type="text" name="pokemons" placeholder="Pika" data-pokemons="<%=@pokemons.pluck(:name).to_json%>">
+      </div>
+      <input class= "btn btn-primary col-2 searchbtn" type="submit">
+    </form>
   </div>
-  <input class= "btn btn-primary col-2 searchbtn" type="submit">
-</form>
+</div>
 
 
 

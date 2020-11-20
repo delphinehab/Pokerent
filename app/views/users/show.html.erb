@@ -44,7 +44,7 @@
           <div class="card-product-booking">
             <div>
               <%# if pokemon.bookings? %>
-                <%= link_to pokemon_path(pokemon) do %>
+                <%= link_to booking_path(pokemon.bookings.first) do %>
                 <% if pokemon.photo.attached?%>
                   <%= cl_image_tag pokemon.photo.key, id:"card-product-booking-img" %>
                 <% else %>

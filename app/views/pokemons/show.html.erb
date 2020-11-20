@@ -21,15 +21,15 @@
     <h5>Evolution level:  <%= @pokemon.evolution_level %></h5>
   </div>
   <div class="pkm-trainer">
-      
+
         <% if @pokemon.user.photo.attached? %>
-        <%= image_tag @pokemon.user.photo.key, class: "avatar", 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= cl_image_tag @pokemon.user.photo.key, class: "avatar", 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
         <%= image_tag "https://i.skyrock.net/6160/62596160/pics/2519591537_1.jpg", class: "avatar", 'aria-expanded': false %>
-        <% end %> 
+        <% end %>
         <p> <strong>Trainer:</strong> <%= @pokemon.user.email %><p>
-      
-      
+
+
         <% if policy(@pokemon).update? %>
           <%= link_to 'Update infos', edit_pokemon_path(@pokemon), :class => 'btn btn-primary btn-edit' %>
         <% end %>
@@ -53,10 +53,10 @@
         <p><strong><%= review.content %></strong>
         <div class="useremail">
         <% if review.booking.user.photo.attached? %>
-        <%= image_tag review.booking.user.photo.key, class: "avatar", 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= cl_image_tag review.booking.user.photo.key, class: "avatar", 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
         <%= image_tag "https://i.skyrock.net/6160/62596160/pics/2519591537_1.jpg", class: "avatar", 'aria-expanded': false %>
-        <% end %> 
+        <% end %>
         <%= review.booking.user.email %></div>
         <% link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Are you sure?"}%>
         </p>

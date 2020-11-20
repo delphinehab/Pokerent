@@ -26,9 +26,8 @@
 
 <div class="cards">
 
-<% @pokemons.each do |pokemon| %>
-  
-      <div class="card">
+<% @pokemons.each_with_index do |pokemon, i| %>
+      <div class="card style<%=i%>">
         <% if pokemon.user == current_user %>
           <div class="my-poke">
           <%= current_user.email.chars.first.upcase %>
@@ -54,7 +53,6 @@
           <% end %>
         </div>
       </div>
-
 <% end %>
 </div>
 </div>

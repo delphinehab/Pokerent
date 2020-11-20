@@ -36,4 +36,13 @@ document.addEventListener('turbolinks:load', () => {
   cursorDate();
 });
 
-ScrollReveal().reveal('.card', { delay: 800 });
+ScrollReveal().reveal('.style0', { delay: 300 });
+ScrollReveal().reveal('.style1', { delay: 400 });
+ScrollReveal().reveal('.style2', { delay: 500 });
+ScrollReveal().reveal('.style3', { delay: 600 });
+ScrollReveal().reveal('.style4', { delay: 700 });
+ScrollReveal().reveal('.style5', { delay: 800 });
+ScrollReveal().reveal('.style6', { delay: 900 });
+ScrollReveal().reveal('.style7', { delay: 1000 });
+ScrollReveal().reveal('.style8', { delay: 1100 });
+ScrollReveal().reveal('.style9', { delay: 1200 });

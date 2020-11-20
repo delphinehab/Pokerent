@@ -21,13 +21,26 @@
 </div>
 <% end %>
 
+<div class="searchcontainer">
+   <div class="row justify-content-between">
+    <form autocomplete="off" action="/action_page.php">
+      <div class="autocomplete" style="width:300px;">
+        <input class="form-control searchbar col-9" id="myInput" type="text" name="pokemons" placeholder="Pika" data-pokemons="<%=@pokemons.pluck(:name).to_json%>">
+      </div>
+      <input class= "btn btn-primary col-2 searchbtn" type="submit">
+    </form>
+  </div>
+</div>
+
+
+
 
 <h4 class="intro">Featured pokemons</h4>
 
 <div class="cards">
 
 <% @pokemons.each_with_index do |pokemon, i| %>
-      <div class="card style<%=i%>">
+      <div class="card style<%=i%>" data-name="<%=pokemon.name%>">
         <% if pokemon.user == current_user %>
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar-card-owner" %>

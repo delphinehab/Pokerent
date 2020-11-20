@@ -1,7 +1,9 @@
 
 
 const searchAuto
- const countries = []
+  const input = document.querySelector()
+  const pokemons = JSON.parse(input.dataset.pokemons)
+  const pokemons =
 
 
 

@@ -24,7 +24,7 @@
 
 <form autocomplete="off" action="/action_page.php">
   <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="myCountry" placeholder="Pkemon">
+    <input id="myInput" type="text" name="myCountry" placeholder="Pkemon" data-pokemons="<%=@pokemons.pluck(:name).to_json%>">
   </div>
   <input class= "btn btn-primary col-2 searchbtn" type="submit">
 </form>

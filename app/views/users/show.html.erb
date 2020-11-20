@@ -79,16 +79,18 @@
     </div>
 
       <div class="card" style="width: 30rem">
-        <h1>MY INFOS</h1>
+        <h1>MY ACCOUNT</h1>
         <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key %>
+          <%= cl_image_tag @user.photo.key, class: "avatar-my-account" %>
         <% else %>
           <p><%= link_to 'Choose a profile picture', edit_user_path(@user) %></p>
         <% end %>
-        <p>First name : <%= @user.firstname %></p>
-        <p>Last name : <%= @user.lastname %></p>
-        <p>My email : <%= @user.email %></p>
-        <p><%= link_to 'Edit my profile', edit_user_path(@user) %></p>
+        <br>
+        <p><strong>First Name:</strong> <%= @user.firstname %></p>
+        <p><strong>Last Name:</strong> <%= @user.lastname %></p>
+        <p><strong>My email:</strong> <%= @user.email %></p>
+        <br>
+        <p><strong><%= link_to 'Edit my profile', edit_user_path(@user) %></strong></p>
       </div>
     </div>
   </div>

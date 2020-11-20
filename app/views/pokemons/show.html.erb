@@ -2,9 +2,9 @@
 
 <div class="poke">
 
-<div class="row">
+<div class="row justify-content-between">
 
-  <div class="pokemon-image col-4">
+  <div class="pokemon-image col-xl-4">
     <%if @pokemon.photo.attached? %>
       <%= cl_image_tag @pokemon.photo.key, crop: :fill , class: "product-img" %>
     <% else %>
@@ -13,17 +13,29 @@
       </div>
     <% end %>
   </div>
-  <div class="pkm-description col-8">
+
+  <div class ="col-xl-8">
+  <div class="pkm-description">
     <h4><%= @pokemon.name %> <%= image_tag "#{@pokemon.element}.png", class: "element" %></h4>
-      <%= @pokemon.description %>
+     <p> <%= @pokemon.description %><br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <h5>Evolution level:  <%= @pokemon.evolution_level %></h5>
-    <h5>Trainer: <%= @pokemon.user.email %></h5>
-    <% if policy(@pokemon).update? %>
-      <%= link_to 'Update infos', edit_pokemon_path(@pokemon), :class => 'btn btn-primary' %>
-    <% end %>
-    <% if policy(@pokemon).destroy? %>
-      <%= link_to "Delete", pokemon_path(@pokemon), method: :delete, :class => 'btn btn-primary' %>
-    <% end %>
+  </div>
+  <div class="pkm-trainer">
+      
+        <% if @pokemon.user.photo.attached? %>
+        <%= image_tag @pokemon.user.photo.key, class: "avatar", 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+        <%= image_tag "https://i.skyrock.net/6160/62596160/pics/2519591537_1.jpg", class: "avatar", 'aria-expanded': false %>
+        <% end %> 
+        <p> <strong>Trainer:</strong> <%= @pokemon.user.email %><p>
+      
+      
+        <% if policy(@pokemon).update? %>
+          <%= link_to 'Update infos', edit_pokemon_path(@pokemon), :class => 'btn btn-primary btn-edit' %>
+        <% end %>
+        <% if policy(@pokemon).destroy? %>
+          <%= link_to "Delete", pokemon_path(@pokemon), method: :delete, :class => 'btn btn-primary btn-delete' %>
+        <% end %>
   </div>
 </div>
 
@@ -33,15 +45,19 @@
 <% end %>
 
 
-
-
-<h4>Reviews</h4>
+<h4 class="text-center">Reviews</h4>
+<br>
   <% @reviews.each do |review| %>
     <% if review.booking.pokemon == @pokemon %>
       <div class="review">
         <p><strong><%= review.content %></strong>
-        <br>
-        <%= review.booking.user.email %>
+        <div class="useremail">
+        <% if review.booking.user.photo.attached? %>
+        <%= image_tag review.booking.user.photo.key, class: "avatar", 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+        <%= image_tag "https://i.skyrock.net/6160/62596160/pics/2519591537_1.jpg", class: "avatar", 'aria-expanded': false %>
+        <% end %> 
+        <%= review.booking.user.email %></div>
         <% link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Are you sure?"}%>
         </p>
       </div>

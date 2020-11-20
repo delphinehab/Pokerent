@@ -33,7 +33,8 @@ class BookingsController < ApplicationController
     @pokemon = Pokemon.find(params[:booking][:pokemon_id])
     if params[:booking][:date] == ""
       @booking = Booking.new
-      render :new
+      redirect_to new_pokemon_booking_path(@pokemon)
+      return
     else
       params[:booking][:date].split(",").each do |date|
       date.to_date

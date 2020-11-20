@@ -6,16 +6,7 @@
       <% @already_booked %>
       <%= month_calendar pokemon: @bookings do |date, bookings| %>
         <!--display date if today's date  and not booked-->
-        <% if date > DateTime.current.to_date %>
-          <% if @already_booked.include?(date) %>
-            <div class="cursor-already-booked" style="cursor: pointer;">
-              <div class="round">
-              <%= date.day %>
-              </div>
-              <!-- content of the complete date -->
-              <span style="display: none"><%= date %></span>
-            </div>
-          <% else %>
+        <% if date > DateTime.current.to_date && @already_booked&.exclude?(date)%>
             <div class="cursor" style="cursor: pointer;">
               <div class="round">
               <%= date.day %>
@@ -23,7 +14,6 @@
               <!-- content of the complete date -->
               <span style="display: none"><%= date %></span>
             </div>
-          <% end %>
         <!--past days note proposed -->
         <% else %>
         <div class="cursor-past" style="cursor: pointer;">

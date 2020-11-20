@@ -8,28 +8,11 @@
 <% end %>
 
 
-<%= form_tag pokemons_path, method: :get do %>
-<div class="searchcontainer">
-  <div class="row justify-content-between">
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control searchbar col-9",
-    placeholder: "Find a pokemon..."
-  %>
-  <%= submit_tag "SEARCH", class: "btn btn-primary col-2 searchbtn" %>
-  </div>
-</div>
-<% end %>
-
-<div class="searchcontainer">
-   <div class="row justify-content-between">
+<div class="row">
     <form autocomplete="off" action="/action_page.php">
-      <div class="autocomplete" style="width:300px;">
-        <input class="form-control searchbar col-9" id="myInput" type="text" name="pokemons" placeholder="Pika" data-pokemons="<%=@pokemons.pluck(:name).to_json%>">
-      </div>
-      <input class= "btn btn-primary col-2 searchbtn" type="submit">
+      <div class=""><input class="form-control searchbar" id="myInput" type="text" name="pokemons" placeholder="Pika" data-pokemons="<%=@pokemons.pluck(:name).to_json%>"></div>
+      <div class=""><input class= "btn btn-primary searchbtn" value="SEARCH" type="submit"></div>
     </form>
-  </div>
 </div>
 
 

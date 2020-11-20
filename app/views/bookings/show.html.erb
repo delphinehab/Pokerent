@@ -15,6 +15,8 @@
       </ul>
     </div>
     <div class="card-product-infos">
+      <li><h6>Date: </h6> <%= @booking.date %> </li>
+      <br>
       <h6>Booking status :
         <% if @booking.status == nil %>
             <p style="color:pink">Waiting for confirmation</p>
@@ -35,9 +37,6 @@
           <p style="color:red">Refused</p>
         <% end %>
       </h6>
-      <br>
-      <br>
-      <li><h6>Date: </h6> <%= @booking.date %> </li>
     </div>
   </div>
 <br>
